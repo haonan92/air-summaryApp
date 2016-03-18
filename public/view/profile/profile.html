@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h1><button ng-click="showdelete=true">Delete Mode</button></h1>
+    <h1><button ng-click="showdelete=false">View Mode</button></h1>
+
+    <div ng-show="currentUser.roles.indexOf('admin')> -1">
+        <h2>Summary Pages</h2>
+      
+            <table class="table table-striped" border="1">
+                <thead>
+
+                    <tr class="info">
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Depart</th>
+                        <th>Back</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Comments</th>
+                        <th ng-show="showdelete">Delete this customer</th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr class="warning" ng-repeat="customer in customers">
+                        <td>{{customer.firstname}}</td>
+                        <td>{{customer.lastname}}</td>
+                        <td>{{customer.from}}</td>
+                        <td>{{customer.to}}</td>
+                        <td>{{customer.depart}}</td>
+                        <td>{{customer.back}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>{{customer.phone}}</td>
+                        <td>{{customer.comments}}</td>
+                        <td ng-show="showdelete" >
+                            <button ng-click="remove(customer._id)"
+                                    class="btn btn-danger"
+                                    id="#">
+                                Remove this customer
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../../css/customer.css" rel="stylesheet" />
+    <script src="../../js/jquery-ui.js"></script>
+</head>
+<body>
+    <textarea></textarea>
+    <div class="container">
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Enter user summary</h2>
+            <label for="firstname">Firstname</label>
+            <input ng-model="customer.firstname" type="text" id="inputFirstname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Firstname" required="">
+            
+            <label for="lastname">Lastname</label>
+            <input ng-model="customer.lastname" type="text" id="inputLastname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Lastname" required="">
+
+            <label for="from">From</label>
+            <input ng-model="customer.from" type="text" id="inputFrom" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="From" required="">
+
+            <label for="lastname">To</label>
+            <input ng-model="customer.to" type="text" id="inputTo" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="To" required="">
+    
+            <label for="depart">Depart</label>
+            <input ng-model="customer.depart" type="date" id="inputDepart" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Depart date" required="">
+            
+            <label for="back">Back</label>
+            <input ng-model="customer.back" type="date" id="inputBack" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Back data" required="">
+            
+            <label for="back">Email</label>
+            <input ng-model="customer.email" type="text" id="inputEmail" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Email" required="">
+
+            <label for="back">Phone</label>
+            <input ng-model="customer.phone" type="text" id="inputPhone" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Phone" required="">
+
+            <label for="back">Comments</label>
+            <input ng-model="customer.comments" type="text" id="inputComments" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Comments" required="">
+
+            <button ng-click="submit(customer)" class="btn btn-info btn-block" type="submit">Add to Worksheet</button>
+        </form>
+    </div>
+</body>
+</html>
