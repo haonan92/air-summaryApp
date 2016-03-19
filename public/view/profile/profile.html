@@ -3,15 +3,17 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <script src="../../js/tableExport.js"></script>
+    <script src="../../js/jquery.base64.js"></script>
+
 </head>
 <body>
-    <h1><button ng-click="showdelete=true">Delete Mode</button></h1>
-    <h1><button ng-click="showdelete=false">View Mode</button></h1>
+    
 
-    <div ng-show="currentUser.roles.indexOf('admin')> -1">
-        <h2>Summary Pages</h2>
+    <div>
+        <h2 style="color:#D9EDF7">Summary Pages</h2>
       
-            <table class="table table-striped" border="1">
+            <table id="customers" class="table table-striped" border="1">
                 <thead>
 
                     <tr class="info">
@@ -52,7 +54,15 @@
 
             </table>
         </div>
-
+    <button class="btn btn-danger" ng-click="showdelete=true">
+        <span class="glyphicon glyphicon-trash"></span> Delete Mode
+    </button>
+    <button class="btn btn-info" ng-click="showdelete=false">
+        <span class="glyphicon glyphicon-eye-open"></span> View Mode
+    </button>
+    <button class="btn btn-success pull-right" onClick="$('#customers').tableExport({type: 'excel', escape: 'false'});">
+        <span class="glyphicon glyphicon-circle-arrow-down"></span> Export Excel File
+    </button>
 
 
 </body>

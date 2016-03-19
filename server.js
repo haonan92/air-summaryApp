@@ -1,11 +1,14 @@
 ﻿var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/test');
+//var db = mongoose.connect('mongodb://localhost/test');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var express = require('express');
 var app = express();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+
+var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
+mongoose.connect(connectionString);
 
 
 
@@ -172,4 +175,8 @@ app.delete("/api/customer/:id", function (req, res) {
 });
 
 
-app.listen(3000);
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+
+
+app.listen(port, ip);
