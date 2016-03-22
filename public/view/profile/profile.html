@@ -12,7 +12,19 @@
 
     <div>
         <h2 style="color:#D9EDF7">Summary Pages</h2>
-      
+    </div><!-- /.row -->
+
+
+    <div class="col-lg-6">
+        <div class="input-group">
+            <input ng-model="customerSearch" type="text" class="form-control" placeholder="Type username you want to search...">
+            <span class="input-group-btn">
+                <button ng-click="searchCustomer()" class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
+
             <table id="customers" class="table table-striped" border="1">
                 <thead>
 
@@ -27,12 +39,12 @@
                         <th>Phone</th>
                         <th>Comments</th>
                         <th ng-show="showdelete">Delete this customer</th>
-
                     </tr>
 
                 </thead>
                 <tbody>
-                    <tr class="warning" ng-repeat="customer in customers">
+               
+                    <tr class="warning" ng-repeat="customer in customers| filter: { firstname: targetuser  }">
                         <td>{{customer.firstname}}</td>
                         <td>{{customer.lastname}}</td>
                         <td>{{customer.from}}</td>
@@ -53,14 +65,14 @@
                 </tbody>
 
             </table>
-        </div>
+      
     <button class="btn btn-danger" ng-click="showdelete=true">
         <span class="glyphicon glyphicon-trash"></span> Delete Mode
     </button>
     <button class="btn btn-info" ng-click="showdelete=false">
         <span class="glyphicon glyphicon-eye-open"></span> View Mode
     </button>
-    <button class="btn btn-success pull-right" onClick="$('#customers').tableExport({type: 'excel', escape: 'false'});">
+    <button class="btn btn-success" onClick="$('#customers').tableExport({type: 'excel', escape: 'false'});">
         <span class="glyphicon glyphicon-circle-arrow-down"></span> Export Excel File
     </button>
 

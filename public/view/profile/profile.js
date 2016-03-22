@@ -12,4 +12,14 @@
         $scope.customers = response;
     });
     }
+
+    //search for targer user
+    $scope.searchCustomer = function () {
+        //console.log($scope.customerSearch);
+        $scope.targetuser = $scope.customerSearch;
+        //console.log($scope.targetuser);
+    }
+
+
+
 });

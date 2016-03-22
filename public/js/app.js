@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
     })
 
     .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/customer'
     })
 });
 
