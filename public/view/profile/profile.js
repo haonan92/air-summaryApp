@@ -21,5 +21,11 @@
     }
 
 
+    //search for targer user
+    $scope.searchTo = function () {
+        //console.log($scope.customerSearch);
+        $scope.targetTo = $scope.toSearch;
+       // console.log($scope.targetTo);
+    }
 
 });
