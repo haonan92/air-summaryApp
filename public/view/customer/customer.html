@@ -7,43 +7,77 @@
     <script src="../../js/jquery-ui.js"></script>
 </head>
 <body>
+    
     <br />
     <br />
-
-    <textarea placeholder="备忘栏" style="display: block;
-    margin-left: auto;
-    margin-right: auto;"></textarea>
+   
     <div class="container">
         <form class="form-signin">
             <h2 class="form-signin-heading">请输入您的信息</h2>
-            <label for="firstname">Firstname</label>
-            <input ng-model="customer.firstname" type="text" id="inputFirstname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Firstname" required="">
+            <label ng-show="currentUser" for="username">用户名</label>
+            <input ng-show="currentUser" ng-model="customer.username" type="text" id="username" class="form-control" placeholder="用户名(必填)"/>
+             
+            <label for="trip">行程</label>
+            <select ng-model="customer.trip" type="text" id="trip" class="form-control " placeholder="行程(必填)" required="required" >
+                <option value="Boston -> Bejing (Single)">波士顿 -> 北京 (单程)</option>
+                <option value="Beijing -> Boston (Single)">北京 -> 波士顿 (单程)</option>
+                <option value="Boston <-> Beijing (Round)">北京 - 波士顿 (往返)</option>
+                <option value="Boston -> Shanghai (Single)">波士顿 - 上海 (单程)</option>
+                <option value="Shanghai -> Boston (Single)">上海 -> 波士顿(单程)</option>
+                <option value="Shanghai <-> Boston (Round)">波士顿 - 上海(往返)</option>
+
+             </select>
+
+            <label for="depart">去程时间</label>
+            <input ng-model="customer.depart" type="date" id="inputDepart" class="form-control" placeholder="Depart date(必填)" />
             
-            <label for="lastname">Lastname</label>
-            <input ng-model="customer.lastname" type="text" id="inputLastname" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Lastname" required="">
-
-            <label for="from">From</label>
-            <input ng-model="customer.from" type="text" id="inputFrom" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="From" required="">
-
-            <label for="lastname">To</label>
-            <input ng-model="customer.to" type="text" id="inputTo" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="To" required="">
-    
-            <label for="depart">Depart</label>
-            <input ng-model="customer.depart" type="date" id="inputDepart" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Depart date" required="">
+            <label for="back">回程时间</label>
+            <input ng-model="customer.back" type="date" id="inputBack" class="form-control" placeholder="Back data(必填)" />
             
-            <label for="back">Back</label>
-            <input ng-model="customer.back" type="date" id="inputBack" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Back data" required="">
-            
-            <label for="back">Email</label>
-            <input ng-model="customer.email" type="text" id="inputEmail" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Email" required="">
 
-            <label for="back">Phone</label>
-            <input ng-model="customer.phone" type="text" id="inputPhone" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Phone" required="">
+            <label for="nameinchinese">中文姓名</label>
+            <input ng-model="customer.nameinchinese" type="text" id="nameinchinese" class="form-control" placeholder="中文姓名(必填)" required="required" />
 
-            <label for="back">Comments</label>
-            <input ng-model="customer.comments" type="text" id="inputComments" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Comments" required="">
 
-            <button ng-click="submit(customer)" class="btn btn-info btn-block" type="submit">Add to Worksheet</button>
+            <label for="nameinpinyin">中文姓名拼音</label>
+            <input ng-model="customer.nameinpinyin" type="text" id="nameinpinyin" class="form-control" placeholder="中文姓名拼音(必填)" required="required" />
+
+
+            <label for="sex">性别</label>
+            <select ng-model="customer.sex" type="text" id="sex" class="form-control" placeholder="性别(必填)" ng-required="required">
+                <option value="Male">男</option>
+                <option value="Female">女</option>
+            </select>
+
+
+            <label for="dateofbirth">出生日期</label>
+            <input ng-model="customer.dateofbirth" type="date" id="dateofbrith" class="form-control" placeholder="出生日期(必填)" required="required" />
+
+            <label for="passport">护照号</label>
+            <input ng-model="customer.passport" type="text" id="passprot" class="form-control" placeholder="护照号(必填)" required="required" />
+
+            <label for="passportdaeuntil">护照有效期</label>
+            <input ng-model="customer.passportdateuntil" type="date" id="passportdateuntil" class="form-control" placeholder="护照有效期(必填)" required="required" />
+           
+            <label for="chineseid">身份证号</label>
+            <input ng-model="customer.chineseid" type="text" id="chineseid" class="form-control" placeholder="身份号(必填)" required="required" />
+
+
+            <label for="email">Email邮箱</label>
+            <input ng-model="customer.email" type="email" id="inputEmail" class="form-control" placeholder="Email邮箱(必填)" required="required" />
+
+            <label for="phone">电话号码</label>
+            <input ng-model="customer.phone" type="text" id="inputPhone" class="form-control" placeholder="电话号" />
+
+            <label for="addressinchina">中国地址</label>
+            <input ng-model="customer.addressinchina" type="text" id="adressinchina" class="form-control" placeholder="中国地址(必填 大概街道)" required="required" />
+
+
+            <label for="addressinus">美国地址</label>
+            <input ng-model="customer.addressinus" type="text" id="addressinus" class="form-control" placeholder="美国地址(必填 大概街道)" required="required" />
+            <br />
+           
+            <input ng-click="submit(customer)" class="btn btn-info btn-block" type="submit" value="Submit" />
         </form>
     </div>
 </body>

@@ -18,13 +18,10 @@ var multer = require('multer'); // v1.0.5
 //var upload = multer(); // for parsing multipart/form-data
 
 
-
+//user model
 var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
-    email: String,
-    firstname: String,
-    lastname: String,
     roles: [String]
 });
 
@@ -32,17 +29,24 @@ var UserSchema = new mongoose.Schema({
 var UserModel = mongoose.model("UserModel", UserSchema);
 
 
+//customer model
 var CustomerSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
-    from: String,
-    to: String,
+    username: String,
+    trip: String,
     depart: Date,
-    back:Date,
+    back: Date,
+    nameinchinese: String,
+    nameinpinyin: String,
+    sex: String,
+    dateofbirth: Date,
+    passport: String,
+    passportdateuntil: Date,
+    chineseid: Number,
     email: String,
     phone: String,
-    comments: String
-    
+    addressinchina: String,
+    addressinus: String,
+    status: String    
 });
 
 var CustomerModel = mongoose.model("CustomerModel", CustomerSchema);

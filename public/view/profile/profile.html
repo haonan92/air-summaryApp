@@ -35,19 +35,26 @@
     </div><!-- /.col-lg-6 -->
 
 
-            <table id="customers" class="table table-striped" border="1">
+            <table id="customers" class="table table-bordered">
                 <thead>
 
                     <tr class="info">
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Depart</th>
-                        <th>Back</th>
+                        <th>Username</th>
+                        <th>Chinese name</th>
+                        <th>Chinese name Pinyin</th>
+                        <th>Trip</th>
+                        <th>Depart Time</th>
+                        <th>Back Time</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>Passport Number</th>
+                        <th>Passport Until</th>
+                        <th>Chinese ID Number</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Comments</th>
+                        <th>Chinese Address</th>
+                        <th>US Address</th>
+                        <th>Status</th>
                         <th ng-show="showdelete">Delete this customer</th>
                     </tr>
 
@@ -55,15 +62,23 @@
                 <tbody>
                
                     <tr class="warning" ng-repeat="customer in customers| filter: { firstname: targetuser  } | filter: { to: targetTo  }">
-                        <td>{{customer.firstname}}</td>
-                        <td>{{customer.lastname}}</td>
-                        <td>{{customer.from}}</td>
-                        <td>{{customer.to}}</td>
+                        <td>{{customer.username}}</td>
+                        <td>{{customer.nameinchinese}}</td>
+                        <td>{{customer.nameinpinyin}}</td>
+                        <td>{{customer.trip}}</td>
                         <td>{{customer.depart}}</td>
                         <td>{{customer.back}}</td>
+                        <td>{{customer.sex}}</td>
+                        <td>{{customer.dateofbirth}}</td>
+                        <td>{{customer.passport}}</td>
+                        <td>{{customer.passportdateuntil}}</td>
+                        <td>{{customer.chineseid}}</td>
                         <td>{{customer.email}}</td>
                         <td>{{customer.phone}}</td>
-                        <td>{{customer.comments}}</td>
+                        <td>{{customer.addressinchina}}</td>
+                        <td>{{customer.addressinus}}</td>
+                        <td>{{customer.status}}</td>
+
                         <td ng-show="showdelete" >
                             <button ng-click="remove(customer._id)"
                                     class="btn btn-danger"

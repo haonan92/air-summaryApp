@@ -20,6 +20,10 @@ app.config(function($routeProvider) {
         templateUrl: 'view/customer/customer.html',
         controller: 'CustomerCtrl'
     })
+    .when('/summary/:username', {
+        templateUrl: 'view/summary/summary.html'
+        
+    })
     .when('/profile', {
         templateUrl: 'view/profile/profile.html',
         controller: 'ProfileCtrl',
@@ -29,7 +33,7 @@ app.config(function($routeProvider) {
     })
 
     .otherwise({
-        redirectTo: '/customer'
+        redirectTo: '/home'
     })
 });
 
