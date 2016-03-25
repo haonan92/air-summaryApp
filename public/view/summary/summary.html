@@ -5,6 +5,55 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-    <h1>Summary</h1>
+    <h1>This is Your Booking Summary {{currentUser.username}}</h1>
+
+
+    <div class="col-lg-6">
+        <div class="input-group">
+            <input ng-model="targetuser" type="text" class="form-control" placeholder="Type username you want to search...">
+            <span class="input-group-btn">
+                <button ng-click="searchCustomer()" class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+
+    <table id="customers" class="table table-bordered">
+        <thead>
+
+            <tr class="info">
+                <th>Username</th>
+                <th>Chinese name Pinyin</th>
+                <th>Trip</th>
+                <th>Depart Time</th>
+                <th>Back Time</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Passport Number</th>
+                <th>Passport Until</th>
+                <th>Chinese ID Number</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            <tr class="warning" ng-repeat="customer in customers | filter: { username: targetuser  }">
+                <td>{{customer.username}}</td>
+                <td>{{customer.nameinpinyin}}</td>
+                <td>{{customer.trip}}</td>
+                <td>{{customer.depart}}</td>
+                <td>{{customer.back}}</td>
+                <td>{{customer.sex}}</td>
+                <td>{{customer.dateofbirth}}</td>
+                <td>{{customer.passport}}</td>
+                <td>{{customer.passportdateuntil}}</td>
+                <td>{{customer.chineseid}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.status}}</td>
+            </tr>
+        </tbody>
+
+    </table>
 </body>
 </html>

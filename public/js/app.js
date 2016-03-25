@@ -21,8 +21,8 @@ app.config(function($routeProvider) {
         controller: 'CustomerCtrl'
     })
     .when('/summary/:username', {
-        templateUrl: 'view/summary/summary.html'
-        
+        templateUrl: 'view/summary/summary.html',
+        controller: 'SummaryCtrl'
     })
     .when('/profile', {
         templateUrl: 'view/profile/profile.html',

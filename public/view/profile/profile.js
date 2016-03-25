@@ -13,13 +13,20 @@
     });
     }
 
+    /*
     //search for targer user
     $scope.searchCustomer = function () {
         //console.log($scope.customerSearch);
         $scope.targetuser = $scope.customerSearch;
         //console.log($scope.targetuser);
     }
+    */
 
+    $scope.searchEmail = function () {
+        //console.log($scope.customerSearch);
+        $scope.useremail = $scope.emailSearch;
+        //console.log($scope.targetuser);
+    }
 
     //search for targer user
     $scope.searchTo = function () {
@@ -27,5 +34,7 @@
         $scope.targetTo = $scope.toSearch;
        // console.log($scope.targetTo);
     }
+
+   
 
 });

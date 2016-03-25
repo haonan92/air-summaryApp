@@ -8,6 +8,8 @@
     console.log($rootScope.currentUser);
 
 
+   
+
     $scope.submit = function (customer) {
 
 
