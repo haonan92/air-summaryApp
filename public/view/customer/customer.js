@@ -5,7 +5,7 @@
 
 
     //represent username
-    console.log($rootScope.currentUser);
+   // console.log($rootScope.currentUser);
 
 
    
@@ -15,7 +15,8 @@
 
             $http.post("/customer", customer)
                 .success(function (response) {
-                    $location.url("/profile");
+                    console.log(response);
+                    $location.url("/home");
                 })
         }
     

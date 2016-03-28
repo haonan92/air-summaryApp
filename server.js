@@ -41,7 +41,7 @@ var CustomerSchema = new mongoose.Schema({
     dateofbirth: Date,
     passport: String,
     passportdateuntil: Date,
-    chineseid: Number,
+    chineseid: String,
     email: String,
     phone: String,
     addressinchina: String,

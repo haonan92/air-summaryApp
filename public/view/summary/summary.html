@@ -10,14 +10,14 @@
 
     <div class="col-lg-6">
         <div class="input-group">
-            <input ng-model="targetuser" type="text" class="form-control" placeholder="Type username you want to search...">
+            <input ng-model="targetuser" type="hidden" class="form-control" placeholder="Type username you want to search...">
             <span class="input-group-btn">
-                <button ng-click="searchCustomer()" class="btn btn-default" type="button">Go!</button>
+                <button ng-click="searchCustomer() ; showdelete=true" class="btn btn-default" type="button">Go!</button>
             </span>
         </div>
     </div>
 
-    <table id="customers" class="table table-bordered">
+    <table ng-show="showdelete" id="customers" class="table table-bordered">
         <thead>
 
             <tr class="info">

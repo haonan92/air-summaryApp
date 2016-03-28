@@ -38,13 +38,13 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                  <li><a href="#login" ng-show="!currentUser">Log in</a></li>
-                  <!-- <li><a class="navbar-brand" href="#register" ng-show="!currentUser">Sign up</a></li> -->
+                  <li><a class="navbar-brand" href="#login" ng-show="!currentUser">Log in</a></li>
+                  <li><a class="navbar-brand" href="#register" ng-show="!currentUser">Sign up</a></li>
                   <!-- <li><a class="navbar-brand" href="#logout" ng-show="currentUser" ng-click="logout()">Log out</a></li>  -->
                   
-                  <li><a href="#customer">Book a Ticket</a></li>
-                  <li><a href="#summary/{{currentUser.username}}" ng-show="currentUser">Booking Summary</a></li>
-                  <li><a href="#profile" ng-show="currentUser">Profile</a></li>
+                  <li><a class="navbar-brand" href="#customer">Book a Ticket</a></li>
+                  <li><a class="navbar-brand" href="#summary/{{currentUser.username}}" ng-show="currentUser">Booking Summary</a></li>
+                  <li><a class="navbar-brand" href="#profile" ng-show="currentUser.roles.indexOf('admin')> -1">Profile</a></li>
 
               </ul>
             </div>
