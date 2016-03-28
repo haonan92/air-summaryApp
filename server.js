@@ -53,10 +53,10 @@ var CustomerModel = mongoose.model("CustomerModel", CustomerSchema);
 
 
 //example
-//var admin = new UserModel({username: "alice",password: "alice",firstname: "Alice",lastname: "Wonderland",roles: ["admin"]});
+//var hounan = new UserModel({username: "hounan",password: "hounan",roles: ["admin"]});
 //var student = new UserModel({username: "bob",password: "bob",firstname: "bob",lastname: "Marle",roles: ["student"]});
 //admin.save();
-//student.save();
+//hounan.save();
 
 
 app.use(bodyParser.json()); // for parsing application/json

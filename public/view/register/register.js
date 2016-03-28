@@ -1,7 +1,7 @@
 ﻿app.controller("RegisterCtrl", function ($scope, $http, $rootScope, $location) {
     $scope.register = function(user)
     {
-        console.log(user);
+       // console.log(user);
         if (user.password != user.password2 || !user.password || !user.password2) {
             alert("Your passwords don't match");
             return;
@@ -16,7 +16,7 @@
                 }
                 if (response != null && response != "user already exists") {
                     $rootScope.currentUser = response;
-                    console.log($rootScope.currentUser);
+                 //   console.log($rootScope.currentUser);
                     $location.url("/profile");
 
                 }

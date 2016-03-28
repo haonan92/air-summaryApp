@@ -9,7 +9,7 @@
 
     //represent username
     //console.log($rootScope.currentUser);
-    console.log($routeParams.username);
+   // console.log($routeParams.username);
 
 
 

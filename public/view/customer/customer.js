@@ -11,13 +11,19 @@
    
 
     $scope.submit = function (customer) {
-
-
+            
+        if (customer.email == null) {
+            return;
+        }
+        else {
             $http.post("/customer", customer)
                 .success(function (response) {
-                    console.log(response);
+                 //   console.log(response);
                     $location.url("/home");
                 })
+        }
+
+            
         }
     
     
