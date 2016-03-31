@@ -5,6 +5,15 @@
     });
 
 
+    $scope.getinfo = function (id) {
+        $http.get("/api/getcustomer/" + id)
+        .success(function (response) {
+            $scope.selected = response;
+            //console.log($scope.selected);
+        })
+    }
+
+
     //for delete user
     $scope.remove = function (id) {
         $http.delete("/api/customer/" + id)
@@ -12,6 +21,9 @@
         $scope.customers = response;
     });
     }
+
+
+    $scope.numLimit = 10;
 
     /*
     //search for targer user

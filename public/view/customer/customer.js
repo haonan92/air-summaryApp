@@ -11,11 +11,11 @@
    
 
     $scope.submit = function (customer) {
-            
+       // console.log(new Date(Date.parse(customer.back)).toUTCString().substring(0,10));
         if (customer.email == null) {
-            return;
-        }
-        else {
+           return;
+       }
+       else {
             $http.post("/customer", customer)
                 .success(function (response) {
                  //   console.log(response);
