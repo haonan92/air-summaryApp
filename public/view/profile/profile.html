@@ -36,6 +36,18 @@
     </div>
 
 
+
+    <div class="col-lg-6">
+        <div class="input-group">
+            <input ng-model="labelSearch" type="text" class="form-control" placeholder="Type Label for user you want to search...">
+            <span class="input-group-btn">
+                <button ng-click="searchLabel()" class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+
+
+
     <div class="col-lg-6">
         <div class="input-group">
             <select ng-model="toSearch" type="text" class="form-control" placeholder="Please Select">
@@ -59,6 +71,9 @@
 
                     <tr class="info">
                         <th>Get Info</th>
+                        <th>Change UserLabel</th>
+                        <th>Userlabel</th>
+                        <th>Status</th>
                         <th>Username</th>
                         <th>Chinesename</th>
                         <th>ChinesePinyin</th>
@@ -74,14 +89,12 @@
                         <th>Phone</th>
                         <th>Chinese&nbsp;Address</th>
                         <th>US&nbsp;Address</th>
-                        <th>Status</th>
                         <th ng-show="showdelete">Delete this customer</th>
                     </tr>
-
                 </thead>
                 <tbody>
-               
-                    <tr class="warning" ng-repeat="customer in customers | filter: { trip: targetTo  } | filter: { email: useremail  }">
+                    
+                    <tr class="warning" ng-repeat="customer in customers | filter: { trip: targetTo  } | filter: { email: useremail  } | filter: { userlabel: labelTo}">
                         <td>
                             <button ng-click="getinfo(customer._id)"
                                     class="btn btn-warning"
@@ -89,6 +102,23 @@
                                 <span class="glyphicon glyphicon-plane"></span>
                             </button>
                         </td>
+                        <td>
+                            <button ng-click="addlabel(customer._id); showedit=true"
+                                    class="btn btn-info"
+                                    id="#">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                        </td>
+                        <td ng-show="showedit">
+                            <input ng-model="customer.userlabel" />
+                            <button ng-click="update(customer); showedit=false"
+                                    class="btn btn-success"
+                                    id="#">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </td>
+                        <td>{{customer.userlabel}}</td>
+                        <td>{{customer.status}}</td>
                         <td>{{customer.username}}</td>
                         <td>{{customer.nameinchinese}}</td>
                         <td>{{customer.nameinpinyin}}</td>
@@ -104,7 +134,6 @@
                         <td>{{customer.phone}}</td>
                         <td>{{customer.addressinchina}}</td>
                         <td>{{customer.addressinus}}</td>
-                        <td>{{customer.status}}</td>
 
                         <td ng-show="showdelete" >
                             <button ng-click="remove(customer._id)"

@@ -47,6 +47,30 @@
        // console.log($scope.targetTo);
     }
 
+
+    //search for targer user
+    $scope.searchLabel = function () {
+        //console.log($scope.customerSearch);
+        $scope.labelTo = $scope.labelSearch;
+        // console.log($scope.targetTo);
+    }
+
    
+    $scope.addlabel = function (id) {
+        $http.get("/api/addlabel/" + id)
+        .success(function (response) {
+            $scope.customerid = response;
+            console.log($scope.customerid);
+        })
+    }
+
+    //update method
+    $scope.update = function (newcustomer) {
+        $http.put("/api/customer/" + $scope.customerid, newcustomer)
+        .success(function (response) {
+            $scope.customer = response;
+           // console.log($scope.customer);
+        })
+    }
 
 });

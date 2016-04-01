@@ -46,7 +46,8 @@ var CustomerSchema = new mongoose.Schema({
     phone: String,
     addressinchina: String,
     addressinus: String,
-    status: String    
+    status: String,
+    userlabel: String
 });
 
 var CustomerModel = mongoose.model("CustomerModel", CustomerSchema);
@@ -186,6 +187,29 @@ app.get("/api/getcustomer/:id", function (req, res) {
             res.json(customer);
         });
 });
+
+
+
+//for get user
+app.get("/api/addlabel/:id", function (req, res) {
+    var id = req.params.id;
+    CustomerModel.findOne({ _id: id }, function (err, customer) {
+        res.json(customer.id);
+    });
+});
+
+
+app.put("/api/customer/:id", function (req, res) {
+    var id = req.params.id;
+    var newcustomer = req.body;
+    CustomerModel.findOne({ _id: id }, function (err, customer) {
+        CustomerModel.find(function (err, customers) {
+            customer.userlabel = newcustomer.userlabel;
+            customer.save();
+            res.json(customer);
+        });
+    });
+})
 
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
