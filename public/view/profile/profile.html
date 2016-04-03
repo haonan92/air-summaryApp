@@ -72,6 +72,7 @@
                     <tr class="info">
                         <th>Get Info</th>
                         <th>Change UserLabel</th>
+                        <th>Change Status</th>
                         <th>Userlabel</th>
                         <th>Status</th>
                         <th>Username</th>
@@ -109,16 +110,43 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                         </td>
-                        <td ng-show="showedit">
-                            <input ng-model="customer.userlabel" />
-                            <button ng-click="update(customer); showedit=false"
+
+                        <td>
+                            <button ng-click="changestatus(customer._id); showstatus=true"
+                                    class="btn btn-primary"
+                                    id="#">
+                                <span class="glyphicon glyphicon-bell"></span>
+                            </button>
+                        </td>
+                       
+                        <td><input ng-show="showedit" ng-model="customer.userlabel" />
+                        <button  ng-show="showedit" ng-click="update(customer); showedit=false"
+                                class="btn btn-success"
+                                id="#">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <br />
+                        {{customer.userlabel}}
+                        </td>
+
+
+                        <td>
+                            <select ng-show="showstatus" ng-model="customer.status" type="text" class="form-control" placeholder="Please Select">
+                                <option value="排队中">排队中</option>
+                                <option value="可订票">可订票</option>
+                                <option value="已出票">已出票</option>
+                                <option value="已完成">已完成</option>
+                                <option value="已放弃">已放弃</option>
+                            </select>
+
+                            <button ng-show="showstatus" ng-click="updatestatus(customer); showstatus=false"
                                     class="btn btn-success"
                                     id="#">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>
+                            <br />
+                            {{customer.status}}
                         </td>
-                        <td>{{customer.userlabel}}</td>
-                        <td>{{customer.status}}</td>
                         <td>{{customer.username}}</td>
                         <td>{{customer.nameinchinese}}</td>
                         <td>{{customer.nameinpinyin}}</td>

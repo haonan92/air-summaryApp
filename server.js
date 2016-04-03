@@ -212,6 +212,29 @@ app.put("/api/customer/:id", function (req, res) {
 })
 
 
+
+
+//for get user
+app.get("/api/changestatus/:id", function (req, res) {
+    var id = req.params.id;
+    CustomerModel.findOne({ _id: id }, function (err, customer) {
+        res.json(customer.id);
+    });
+});
+
+app.put("/api/customerstatus/:id", function (req, res) {
+    var id = req.params.id;
+    var newcustomer = req.body;
+    CustomerModel.findOne({ _id: id }, function (err, customer) {
+        CustomerModel.find(function (err, customers) {
+            customer.status = newcustomer.status;
+            customer.save();
+            res.json(customer);
+        });
+    });
+})
+
+
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 

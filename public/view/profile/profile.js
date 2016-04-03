@@ -73,4 +73,22 @@
         })
     }
 
+
+
+    $scope.changestatus = function (id) {
+        $http.get("/api/changestatus/" + id)
+        .success(function (response) {
+            $scope.customerid = response;
+        //    console.log($scope.customerid);
+        })
+    }
+
+    //update status
+    $scope.updatestatus = function (newcustomer) {
+        $http.put("/api/customerstatus/" + $scope.customerid, newcustomer)
+        .success(function (response) {
+            $scope.customer = response;
+         //   console.log($scope.customer);
+        })
+    }
 });
